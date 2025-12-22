@@ -29,16 +29,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # Cache removido para evitar erro de 'lock file not found'
+          # Cache removido para evitar possíveis conflitos
 
       - name: Install Dependencies
-        # Usamos 'npm install' em vez de 'npm ci' para gerar o lockfile dinamicamente
         run: npm install
 
+      - name: Setup Angular Config
+        # O Angular CLI exige o ficheiro angular.json. Renomeamos o nosso config para satisfazer o requisito.
+        run: mv ng-config.json angular.json
+
       - name: Build Angular App
-        # --config aponta para a nossa configuração personalizada
-        # --base-href ajusta os caminhos para o GitHub Pages
-        run: npx ng build --configuration production --config ng-config.json --base-href /${{ github.event.repository.name }}/
+        # Argumento --config removido pois não é suportado. O ficheiro angular.json já existe (passo anterior).
+        run: npx ng build --configuration production --base-href /${{ github.event.repository.name }}/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
