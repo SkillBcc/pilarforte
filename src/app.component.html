@@ -1,12 +1,22 @@
 
 <!-- Navigation -->
-<nav class="fixed w-full z-50 nav-container">
+<nav class="fixed w-full z-50 nav-container transition-all duration-300 ease-in-out" 
+     [class.shadow-lg]="isScrolled()"
+     [class.bg-opacity-95]="!isScrolled()"
+     [class.bg-opacity-100]="isScrolled()"
+     [style.background-color]="isScrolled() ? '#1C1C1C' : 'rgba(28, 28, 28, 0.95)'">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-24">
+    <div class="flex items-center justify-between transition-all duration-300 ease-in-out" 
+         [class.h-24]="!isScrolled()" 
+         [class.h-16]="isScrolled()">
       
       <!-- Logo Area -->
       <a routerLink="/" class="flex-shrink-0 flex items-center gap-4 cursor-pointer group">
-        <div class="relative w-14 h-14 flex items-center justify-center logo-box transition-transform duration-500 group-hover:rotate-0">
+        <div class="relative flex items-center justify-center logo-box transition-all duration-300 ease-in-out group-hover:rotate-0"
+             [class.w-14]="!isScrolled()"
+             [class.h-14]="!isScrolled()"
+             [class.w-10]="isScrolled()"
+             [class.h-10]="isScrolled()">
           <!-- Classical Column Logo SVG -->
           <svg class="w-full h-full" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Outer Ring (White via currentColor) -->
@@ -48,9 +58,9 @@
             </g>
           </svg>
         </div>
-        <div class="flex flex-col logo-text">
+        <div class="flex flex-col logo-text transition-all duration-300 origin-left" [class.scale-90]="isScrolled()">
           <span class="text-2xl font-bold text-white brand-name tracking-widest leading-none">PILAR FORTE</span>
-          <div class="flex items-center gap-2 mt-1">
+          <div class="flex items-center gap-2 mt-1 transition-opacity duration-300" [class.opacity-0]="isScrolled()" [class.h-0]="isScrolled()">
             <div class="h-[1px] w-8 bg-pilar-gold"></div>
             <span class="text-[9px] uppercase font-bold text-gray-300 tracking-[0.15em] leading-none">Engenharia & Construção</span>
           </div>

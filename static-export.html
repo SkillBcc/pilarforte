@@ -54,22 +54,56 @@
     .reveal-delay-2 { transition-delay: 0.3s; }
     .reveal-delay-3 { transition-delay: 0.45s; }
 
-    /* NAVIGATION */
+    /* NAVIGATION TRANSITIONS */
     .nav-container {
       background-color: rgba(28, 28, 28, 0.95);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(184, 158, 104, 0.2);
-      transition: all 0.3s ease;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-container.scrolled {
+      background-color: #1C1C1C;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Target inner container height */
+    .nav-inner {
+      transition: height 0.3s ease-in-out;
+      height: 6rem; /* h-24 */
+    }
+    .nav-container.scrolled .nav-inner {
+      height: 4rem; /* h-16 */
+    }
+
+    /* Target Logo Size */
+    .logo-box {
+      background-color: transparent;
+      color: #FFFFFF;
+      transition: all 0.3s ease-in-out;
+      width: 3.5rem; /* w-14 */
+      height: 3.5rem; /* h-14 */
+    }
+    .nav-container.scrolled .logo-box {
+      width: 2.5rem; /* w-10 */
+      height: 2.5rem; /* h-10 */
+    }
+
+    /* Hide tagline on scroll */
+    .brand-tagline-container {
+      transition: opacity 0.3s ease, height 0.3s ease;
+      opacity: 1;
+      height: auto;
+    }
+    .nav-container.scrolled .brand-tagline-container {
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
     }
 
     .brand-name {
       font-family: 'Cinzel', serif;
       letter-spacing: 2px;
-      color: #FFFFFF;
-    }
-
-    .logo-box {
-      background-color: transparent;
       color: #FFFFFF;
     }
 
@@ -265,13 +299,13 @@
 <body class="bg-white text-gray-800 font-sans antialiased">
 
   <!-- Navigation -->
-  <nav class="fixed w-full z-50 nav-container">
+  <nav id="main-nav" class="fixed w-full z-50 nav-container">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-24">
+      <div id="nav-inner" class="flex items-center justify-between nav-inner">
         
         <!-- Logo Area -->
         <a href="#" class="flex-shrink-0 flex items-center gap-4 cursor-pointer" style="text-decoration: none;">
-          <div class="relative w-14 h-14 flex items-center justify-center logo-box">
+          <div class="relative flex items-center justify-center logo-box">
              <!-- Classical Column Logo SVG -->
              <svg class="w-full h-full" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <!-- Outer Ring (White via currentColor) -->
@@ -314,7 +348,7 @@
           </div>
           <div class="flex flex-col logo-text">
             <span class="text-2xl font-bold text-white brand-name leading-none">PILAR FORTE</span>
-            <div class="flex items-center gap-2 mt-1">
+            <div class="brand-tagline-container flex items-center gap-2 mt-1">
               <div style="height: 1px; width: 30px; background-color: #B89E68;"></div>
               <span class="text-[9px] uppercase font-bold text-gray-300 tracking-[0.15em] leading-none">Engenharia & Construção</span>
             </div>
@@ -564,14 +598,24 @@
       }
     }
 
-    // Scroll Reveal Animation
+    // Scroll Reveal Animation & Nav Shrink
     document.addEventListener("DOMContentLoaded", function() {
         const reveals = document.querySelectorAll('.reveal');
+        const nav = document.getElementById('main-nav');
 
         const revealOnScroll = function() {
             const windowHeight = window.innerHeight;
             const elementVisible = 100;
+            const scrollY = window.scrollY;
 
+            // Nav Animation
+            if (scrollY > 20) {
+              nav.classList.add('scrolled');
+            } else {
+              nav.classList.remove('scrolled');
+            }
+
+            // Reveal Animation
             reveals.forEach((reveal) => {
                 const elementTop = reveal.getBoundingClientRect().top;
                 if (elementTop < windowHeight - elementVisible) {
