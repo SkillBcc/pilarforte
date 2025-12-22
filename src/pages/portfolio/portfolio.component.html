@@ -18,7 +18,7 @@
                <span class="category text-pilar-gold text-sm font-bold uppercase tracking-wider mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 ease-out">{{ project.category }}</span>
                <h3 class="title text-white font-serif text-xl mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75 ease-out">{{ project.title }}</h3>
                <p class="location text-gray-300 text-sm flex items-center gap-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100 ease-out">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <img src="assets/images/icon-location.svg" class="w-4 h-4" alt="Local">
                 {{ project.location }}
                </p>
                <p class="text-xs text-pilar-gold mt-4 opacity-0 group-hover:opacity-100 transition-opacity delay-200 uppercase tracking-widest font-bold">Ver Galeria +</p>
@@ -35,7 +35,7 @@
       
       <!-- Close Button -->
       <button class="close-btn" (click)="closeProject()">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        <img src="assets/images/icon-close.svg" class="w-8 h-8" alt="Fechar">
       </button>
 
       <!-- Main Content -->
@@ -47,10 +47,10 @@
            
            <!-- Navigation Arrows -->
            <button class="nav-btn prev" (click)="prevImage($event)">
-             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+             <img src="assets/images/icon-nav-prev.svg" class="w-8 h-8" alt="Anterior">
            </button>
            <button class="nav-btn next" (click)="nextImage($event)">
-             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+             <img src="assets/images/icon-nav-next.svg" class="w-8 h-8" alt="Próximo">
            </button>
         </div>
 
