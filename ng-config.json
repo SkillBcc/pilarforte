@@ -25,9 +25,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/app.component.css"
-            ],
+            "styles": [],
             "scripts": []
           },
           "configurations": {
