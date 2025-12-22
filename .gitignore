@@ -13,6 +13,8 @@ dist-ssr
 *.local
 
 # Editor directories and files
+.angular
+.angular/*
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -22,3 +24,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.angular/cache/18.2.21/app/vite/deps/@angular_common.js
