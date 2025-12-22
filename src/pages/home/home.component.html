@@ -3,7 +3,15 @@
 <!-- Note: Hero uses standard 'page-animate' (fadeInUp) because it's visible on load, not scroll -->
 <section class="relative h-screen flex items-center justify-center overflow-hidden">
   <div class="absolute inset-0 z-0">
-    <img ngSrc="https://picsum.photos/id/192/1920/1080" width="1920" height="1080" priority alt="Arquitetura Moderna" class="w-full h-full object-cover animate-[fadeIn_1.5s_ease-out]">
+    <!-- Imagem atualizada para URL direta (src) para evitar bloqueios. 
+         Foto específica de engenheiros em obra com planos (Unsplash ID: 1504307651254-35680f356dfd) 
+         Estilo sóbrio mantido: grayscale brightness-75 -->
+    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1920&auto=format&fit=crop" 
+         width="1920" 
+         height="1080" 
+         fetchpriority="high"
+         alt="Engenheiros e trabalhadores a analisar projeto em obra" 
+         class="w-full h-full object-cover animate-[fadeIn_1.5s_ease-out] grayscale brightness-75">
   </div>
   <div class="absolute inset-0 hero-overlay z-10"></div>
   
