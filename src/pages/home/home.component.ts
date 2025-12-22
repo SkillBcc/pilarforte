@@ -1,5 +1,5 @@
 
-import { Component, ElementRef, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, signal, OnInit } from '@angular/core';
 import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -10,9 +10,27 @@ import { RouterLink } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements AfterViewInit, OnDestroy {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   
   private observer: IntersectionObserver | undefined;
+  private carouselInterval: any;
+
+  // Hero Carousel State
+  currentHeroIndex = signal(0);
+  
+  // Lista de imagens para o slideshow (Estilo: Construção/Engenharia Sóbrio)
+  heroImages: string[] = [
+    // 1. Original (Engenheiros com planos)
+    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1920&auto=format&fit=crop',
+    // 2. Estrutura em betão e gruas (Atmosfera construção pesada)
+    'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1920&auto=format&fit=crop',
+    // 3. Engenheiros a apontar/discutir em obra
+    'https://images.unsplash.com/photo-1581094794329-cd136ce4eed6?q=80&w=1920&auto=format&fit=crop',
+    // 4. Detalhe arquitetónico/Fachada em construção
+    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop',
+    // 5. Trabalhador/Capacete e foco técnico
+    'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1920&auto=format&fit=crop'
+  ];
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private el: ElementRef) {}
 
@@ -55,6 +73,12 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     }
   ];
 
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.startHeroCarousel();
+    }
+  }
+
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.setupIntersectionObserver();
@@ -65,6 +89,16 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     if (this.observer) {
       this.observer.disconnect();
     }
+    if (this.carouselInterval) {
+      clearInterval(this.carouselInterval);
+    }
+  }
+
+  private startHeroCarousel() {
+    // Muda a imagem a cada 10 segundos (10000ms)
+    this.carouselInterval = setInterval(() => {
+      this.currentHeroIndex.update(index => (index + 1) % this.heroImages.length);
+    }, 10000);
   }
 
   private setupIntersectionObserver() {

@@ -1,19 +1,22 @@
 
 <!-- Hero Section -->
 <!-- Note: Hero uses standard 'page-animate' (fadeInUp) because it's visible on load, not scroll -->
-<section class="relative h-screen flex items-center justify-center overflow-hidden">
+<section class="relative h-screen flex items-center justify-center overflow-hidden bg-[#1C1C1C]">
   <div class="absolute inset-0 z-0">
-    <!-- Imagem atualizada para URL direta (src) para evitar bloqueios. 
-         Foto específica de engenheiros em obra com planos (Unsplash ID: 1504307651254-35680f356dfd) 
-         Estilo sóbrio mantido: grayscale brightness-75 -->
-    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1920&auto=format&fit=crop" 
-         width="1920" 
-         height="1080" 
-         fetchpriority="high"
-         alt="Engenheiros e trabalhadores a analisar projeto em obra" 
-         class="w-full h-full object-cover animate-[fadeIn_1.5s_ease-out] grayscale brightness-75">
+    <!-- Slideshow de Imagens -->
+    @for (img of heroImages; track img; let i = $index) {
+      <img [src]="img" 
+           [attr.priority]="i === 0 ? true : null"
+           alt="Pilar Forte Construção e Engenharia" 
+           class="absolute inset-0 w-full h-full object-cover grayscale brightness-50 transition-opacity duration-[2500ms] ease-in-out"
+           [class.opacity-100]="i === currentHeroIndex()"
+           [class.opacity-0]="i !== currentHeroIndex()"
+           style="z-index: 0;">
+    }
   </div>
-  <div class="absolute inset-0 hero-overlay z-10"></div>
+  
+  <!-- Overlay para garantir legibilidade extra caso as imagens carreguem devagar -->
+  <div class="absolute inset-0 hero-overlay z-10 pointer-events-none"></div>
   
   <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left w-full">
     <div class="md:w-2/3 page-animate">
