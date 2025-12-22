@@ -1,5 +1,5 @@
 
-import { Component, signal, WritableSignal, computed } from '@angular/core';
+import { Component, signal, WritableSignal, computed, OnDestroy } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 interface ProjectItem {
@@ -18,7 +18,7 @@ interface ProjectItem {
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.css'
 })
-export class PortfolioComponent {
+export class PortfolioComponent implements OnDestroy {
   // State for the Lightbox
   selectedProject: WritableSignal<ProjectItem | null> = signal(null);
   currentImageIndex: WritableSignal<number> = signal(0);
@@ -106,6 +106,11 @@ export class PortfolioComponent {
       ]
     }
   ];
+
+  ngOnDestroy() {
+    // Ensure scroll is restored even if component is destroyed while lightbox is open
+    document.body.style.overflow = 'auto';
+  }
 
   openProject(project: ProjectItem) {
     this.selectedProject.set(project);

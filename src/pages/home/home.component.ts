@@ -1,5 +1,5 @@
 
-import { Component, ElementRef, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, ViewChildren, QueryList } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 

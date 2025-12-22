@@ -26,9 +26,7 @@ export class AppComponent {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.mobileMenuOpen.set(false);
-        if (isPlatformBrowser(this.platformId)) {
-          window.scrollTo(0, 0);
-        }
+        // Scroll restoration is handled by provideRouter configuration (withInMemoryScrolling)
       }
     });
   }
