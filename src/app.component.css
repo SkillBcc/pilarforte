@@ -11,6 +11,10 @@
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(184, 158, 104, 0.2);
   transition: all 0.3s ease;
+  
+  /* FIX FLICKER: Separa o header da transição geral da página */
+  view-transition-name: app-header;
+  z-index: 50;
 }
 
 .brand-name {
