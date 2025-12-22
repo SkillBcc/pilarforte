@@ -27,7 +27,7 @@
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
       }
       to {
         opacity: 1;
@@ -35,29 +35,44 @@
       }
     }
 
+    /* Standard View Transition Fade */
+    ::view-transition-old(root) {
+      animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both fadeOut;
+    }
+
+    ::view-transition-new(root) {
+      animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both fadeIn;
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
 
-    /* Utility class for page transitions */
+    /* Utility class for page element entrance */
     .page-animate {
-      animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0; /* Start hidden for animation */
+      animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     }
     
     /* Delay utilities */
-    .delay-100 { animation-delay: 100ms; }
-    .delay-200 { animation-delay: 200ms; }
-    .delay-300 { animation-delay: 300ms; }
+    .delay-100 { animation-delay: 150ms; }
+    .delay-200 { animation-delay: 300ms; }
+    .delay-300 { animation-delay: 450ms; }
 
     /* Button hover enhancement */
     .btn-hover-effect {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     
     .btn-hover-effect:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(184, 158, 104, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(184, 158, 104, 0.2);
     }
   </style>
   <script>

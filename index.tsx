@@ -1,7 +1,8 @@
+
 import '@angular/compiler';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideZonelessChangeDetection } from '@angular/core';
-import { provideRouter, withHashLocation, withInMemoryScrolling } from '@angular/router';
+import { provideRouter, withHashLocation, withInMemoryScrolling, withViewTransitions } from '@angular/router';
 import { AppComponent } from './src/app.component';
 import { routes } from './src/app.routes';
 
@@ -11,7 +12,8 @@ bootstrapApplication(AppComponent, {
     provideRouter(
       routes, 
       withHashLocation(),
-      withInMemoryScrolling({ scrollPositionRestoration: 'top' })
+      withInMemoryScrolling({ scrollPositionRestoration: 'top' }),
+      withViewTransitions()
     )
   ]
 }).catch((err) => console.error(err));
