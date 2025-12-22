@@ -1,13 +1,14 @@
 import '@angular/compiler';
+import 'zone.js';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideZonelessChangeDetection } from '@angular/core';
+import { provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, withHashLocation, withInMemoryScrolling, withViewTransitions } from '@angular/router';
 import { AppComponent } from './src/app.component';
 import { routes } from './src/app.routes';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideZonelessChangeDetection(),
+    provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(
       routes, 
       withHashLocation(),

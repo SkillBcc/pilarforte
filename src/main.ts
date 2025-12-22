@@ -1,4 +1,5 @@
 import { bootstrapApplication } from '@angular/platform-browser';
+import 'zone.js'; // Critical: Zone.js must be imported for standard Angular change detection
 import { provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, withHashLocation, withInMemoryScrolling, withViewTransitions } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -6,7 +7,7 @@ import { routes } from './app.routes';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideZoneChangeDetection(),
+    provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(
       routes, 
       withHashLocation(),
