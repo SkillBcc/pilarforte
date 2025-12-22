@@ -29,15 +29,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          # Cache removido para evitar erro de 'lock file not found'
 
       - name: Install Dependencies
-        run: npm ci
+        # Usamos 'npm install' em vez de 'npm ci' para gerar o lockfile dinamicamente
+        run: npm install
 
       - name: Build Angular App
-        # A flag --base-href é crucial para o GitHub Pages. 
-        # Esta configuração dinâmica usa o nome do repositório automaticamente.
-        run: npx ng build --base-href /${{ github.event.repository.name }}/
+        # --config aponta para a nossa configuração personalizada
+        # --base-href ajusta os caminhos para o GitHub Pages
+        run: npx ng build --configuration production --config ng-config.json --base-href /${{ github.event.repository.name }}/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -45,9 +46,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Nota: O caminho 'dist/browser' pode variar dependendo do nome do projeto no angular.json.
-          # Se falhar, verifique se a pasta é 'dist/nome-do-projeto/browser' ou apenas 'dist'.
-          path: './dist/browser'
+          path: './dist/pilar-forte/browser'
 
       - name: Deploy to GitHub Pages
         id: deployment
