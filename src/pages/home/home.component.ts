@@ -1,6 +1,6 @@
 
-import { Component } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { Component, ElementRef, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, ViewChildren, QueryList } from '@angular/core';
+import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -10,7 +10,12 @@ import { RouterLink } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit, OnDestroy {
+  
+  private observer: IntersectionObserver | undefined;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private el: ElementRef) {}
+
   featuredServices = [
     {
       title: 'Construção de Raiz',
@@ -49,4 +54,40 @@ export class HomeComponent {
       image: 'https://picsum.photos/id/24/800/600'
     }
   ];
+
+  ngAfterViewInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.setupIntersectionObserver();
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+
+  private setupIntersectionObserver() {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1 // Trigger animation when 10% of the element is visible
+    };
+
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          // Optional: Unobserve after animating once for better performance
+          this.observer?.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    // Select all elements with the 'reveal-on-scroll' class within this component
+    const elements = this.el.nativeElement.querySelectorAll('.reveal-on-scroll');
+    elements.forEach((el: Element) => {
+      this.observer?.observe(el);
+    });
+  }
 }

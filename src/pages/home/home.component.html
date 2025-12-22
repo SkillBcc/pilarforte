@@ -1,5 +1,6 @@
 
 <!-- Hero Section -->
+<!-- Note: Hero uses standard 'page-animate' (fadeInUp) because it's visible on load, not scroll -->
 <section class="relative h-screen flex items-center justify-center overflow-hidden">
   <div class="absolute inset-0 z-0">
     <img ngSrc="https://picsum.photos/id/192/1920/1080" width="1920" height="1080" priority alt="Arquitetura Moderna" class="w-full h-full object-cover animate-[fadeIn_1.5s_ease-out]">
@@ -32,27 +33,27 @@
 <!-- Intro Teaser -->
 <section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <div class="page-animate delay-200">
+    <div class="reveal-on-scroll">
       <h2 class="section-title">A Excelência Pilar Forte</h2>
       <p class="section-subtitle">
         Com mais de uma década de experiência no mercado português, a Pilar Forte destaca-se pela atenção ao detalhe e pela gestão eficiente de cada obra. Seja uma remodelação de luxo ou uma construção de raiz, a nossa assinatura é sinónimo de qualidade.
       </p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 page-animate delay-300">
-       <div class="teaser-card group">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+       <div class="teaser-card group reveal-on-scroll delay-100">
           <h3>Engenharia</h3>
           <p>Projetos estruturais rigorosos.</p>
        </div>
-       <div class="teaser-card group">
+       <div class="teaser-card group reveal-on-scroll delay-200">
           <h3>Construção</h3>
           <p>Execução com materiais premium.</p>
        </div>
-       <div class="teaser-card group">
+       <div class="teaser-card group reveal-on-scroll delay-300">
           <h3>Design</h3>
           <p>Acabamentos esteticamente perfeitos.</p>
        </div>
     </div>
-    <div class="mt-12 page-animate delay-300">
+    <div class="mt-12 reveal-on-scroll delay-300">
       <a routerLink="/empresa" class="link-more">Conheça a nossa história</a>
     </div>
   </div>
@@ -61,15 +62,15 @@
 <!-- Featured Services Section -->
 <section class="py-20 bg-gray-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12 page-animate">
+    <div class="text-center mb-12 reveal-on-scroll">
        <h2 class="section-title">O Que Fazemos</h2>
        <div class="w-20 h-1 bg-[#B89E68] mx-auto mb-4"></div>
        <p class="section-subtitle">Soluções completas de engenharia e arquitetura para projetos exigentes.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 page-animate delay-100">
-      @for (service of featuredServices; track service.title) {
-        <div class="group bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#B89E68]">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      @for (service of featuredServices; track service.title; let i = $index) {
+        <div class="group bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#B89E68] reveal-on-scroll" [class]="'delay-' + (i + 1) * 100">
           <div class="relative h-56 overflow-hidden">
              <img [ngSrc]="service.image" width="600" height="400" [alt]="service.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
              <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
@@ -86,7 +87,7 @@
       }
     </div>
     
-    <div class="text-center mt-12 page-animate delay-200">
+    <div class="text-center mt-12 reveal-on-scroll delay-200">
        <a routerLink="/servicos" class="inline-block border-2 border-[#1C1C1C] text-[#1C1C1C] py-3 px-8 font-bold uppercase tracking-widest text-sm hover:bg-[#1C1C1C] hover:text-white transition-all duration-300">Ver Todos os Serviços</a>
     </div>
   </div>
@@ -95,15 +96,15 @@
 <!-- Recent Portfolio Section -->
 <section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="text-center mb-12 page-animate">
+     <div class="text-center mb-12 reveal-on-scroll">
        <h2 class="section-title">Portfólio Recente</h2>
        <div class="w-20 h-1 bg-[#B89E68] mx-auto mb-4"></div>
        <p class="section-subtitle">Onde o design encontra a perfeição construtiva.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 page-animate delay-100">
-      @for (project of featuredProjects; track project.title) {
-        <div class="group relative h-96 overflow-hidden cursor-pointer">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      @for (project of featuredProjects; track project.title; let i = $index) {
+        <div class="group relative h-96 overflow-hidden cursor-pointer reveal-on-scroll" [class]="'delay-' + (i + 1) * 100">
            <img [ngSrc]="project.image" width="800" height="600" [alt]="project.title" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
            
            <!-- Hover Overlay -->
@@ -116,7 +117,7 @@
       }
     </div>
 
-    <div class="text-center mt-16 page-animate delay-200">
+    <div class="text-center mt-16 reveal-on-scroll delay-200">
        <a routerLink="/portfolio" class="btn-hero-primary btn-hover-effect">Explorar Portfólio Completo</a>
     </div>
   </div>
@@ -125,7 +126,7 @@
 <!-- Call to Action Banner -->
 <section class="py-16 cta-section relative overflow-hidden">
   <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center page-animate">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal-on-scroll">
     <h2 class="font-serif text-3xl font-bold mb-4">Tem um projeto em mente?</h2>
     <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Não deixe para amanhã a obra que pode começar hoje. Fale com os nossos especialistas.</p>
     <a routerLink="/contactos" class="btn-hero-primary btn-hover-effect">
