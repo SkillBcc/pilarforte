@@ -1,0 +1,57 @@
+
+.page-header {
+  background-color: #F4F4F4;
+  padding: 4rem 0 2rem 0;
+}
+
+.page-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  color: #1C1C1C;
+}
+
+.page-decoration {
+  width: 40px;
+  height: 3px;
+  background-color: #B89E68;
+  margin: 1rem auto;
+}
+
+.text-pilar-gold {
+  color: #B89E68;
+}
+
+.hover\:text-pilar-gold:hover {
+  color: #B89E68;
+}
+
+.section-heading {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  color: #1C1C1C;
+}
+
+.step-number {
+  font-family: 'Cinzel', serif;
+  font-size: 3rem;
+  color: rgba(184, 158, 104, 0.2); /* Gold transparent */
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.btn-primary {
+  background-color: #B89E68;
+  color: #1C1C1C;
+  padding: 1rem 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background-color: #1C1C1C;
+  color: #FFF;
+}

@@ -1,0 +1,74 @@
+
+.page-header {
+  background-color: #F4F4F4;
+  padding: 4rem 0 2rem 0;
+}
+
+.page-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  color: #1C1C1C;
+}
+
+.page-decoration {
+  width: 40px;
+  height: 3px;
+  background-color: #B89E68;
+  margin: 1rem auto;
+}
+
+.page-subtitle {
+  color: #666;
+  max-width: 600px;
+  margin: 1rem auto 0 auto;
+}
+
+.service-card {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem;
+  border: 1px solid #eee;
+  background: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  background: #fff;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  border-color: #B89E68;
+  transform: translateY(-5px);
+}
+
+.icon-box {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background-color: #1C1C1C;
+  color: #B89E68;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.service-card:hover .icon-box {
+  background-color: #B89E68;
+  color: #1C1C1C;
+}
+
+.service-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.25rem;
+  color: #1C1C1C;
+  margin-bottom: 0.75rem;
+}
+
+.service-description {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.text-pilar-gold {
+  color: #B89E68;
+}

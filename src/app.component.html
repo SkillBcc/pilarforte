@@ -1,0 +1,74 @@
+<!-- Navigation -->
+<nav class="fixed w-full z-50 nav-container">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-24">
+      
+      <!-- Logo Area -->
+      <a routerLink="/" class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+        <div class="relative w-12 h-12 flex items-center justify-center rounded-full logo-box">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+             <path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z"/>
+          </svg>
+        </div>
+        <div class="flex flex-col logo-text">
+          <span class="text-2xl font-bold text-white brand-name">PILAR FORTE</span>
+          <span class="text-[10px] uppercase font-light brand-tagline">Engenharia & Construção</span>
+        </div>
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-8">
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">INÍCIO</a>
+          <a routerLink="/empresa" routerLinkActive="active" class="nav-link">A EMPRESA</a>
+          <a routerLink="/servicos" routerLinkActive="active" class="nav-link">SERVIÇOS</a>
+          <a routerLink="/portfolio" routerLinkActive="active" class="nav-link">PORTFÓLIO</a>
+          <a routerLink="/contactos" routerLinkActive="active" class="btn-contact rounded-sm text-sm">CONTACTOS</a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="-mr-2 flex md:hidden">
+        <button (click)="toggleMenu()" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+          <span class="sr-only">Abrir menu</span>
+          <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Panel -->
+  @if (mobileMenuOpen()) {
+    <div class="md:hidden mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a routerLink="/" (click)="closeMenu()" class="block px-3 py-2 rounded-md text-base font-medium">INÍCIO</a>
+        <a routerLink="/empresa" (click)="closeMenu()" class="block px-3 py-2 rounded-md text-base font-medium">A EMPRESA</a>
+        <a routerLink="/servicos" (click)="closeMenu()" class="block px-3 py-2 rounded-md text-base font-medium">SERVIÇOS</a>
+        <a routerLink="/portfolio" (click)="closeMenu()" class="block px-3 py-2 rounded-md text-base font-medium">PORTFÓLIO</a>
+        <a routerLink="/contactos" (click)="closeMenu()" class="highlight block px-3 py-2 rounded-md text-base font-medium">CONTACTOS</a>
+      </div>
+    </div>
+  }
+</nav>
+
+<!-- Main Content Area -->
+<main class="min-h-screen">
+  <router-outlet></router-outlet>
+</main>
+
+<!-- Footer -->
+<footer class="footer-base py-12 text-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="text-center md:text-left">
+      <span class="text-lg font-bold brand">PILAR FORTE</span>
+      <p class="mt-1">&copy; {{ currentYear }} Pilar Forte Engenharia & Construção. Todos os direitos reservados.</p>
+    </div>
+    <div class="flex space-x-6">
+      <a href="#" class="transition-colors">Política de Privacidade</a>
+      <a href="#" class="transition-colors">Termos e Condições</a>
+      <a href="#" class="transition-colors">Livro de Reclamações</a>
+    </div>
+  </div>
+</footer>

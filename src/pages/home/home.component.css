@@ -1,0 +1,129 @@
+
+/* Hero */
+.hero-overlay {
+  background: linear-gradient(90deg, rgba(28,28,28,0.9) 0%, rgba(28,28,28,0.6) 100%);
+}
+
+.hero-line {
+  width: 60px;
+  height: 4px;
+  background-color: #B89E68;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: #FFF;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+}
+
+.text-highlight {
+  color: #B89E68;
+}
+
+.hero-description {
+  color: #DDD;
+  font-size: 1.125rem;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+}
+
+.btn-hero-primary {
+  display: inline-block;
+  background-color: #B89E68;
+  color: #1C1C1C;
+  padding: 1rem 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  border: 2px solid #B89E68;
+}
+
+.btn-hero-primary:hover {
+  background-color: transparent;
+  color: #B89E68;
+}
+
+.btn-hero-secondary {
+  display: inline-block;
+  background-color: transparent;
+  color: #FFF;
+  padding: 1rem 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  border: 2px solid #FFF;
+}
+
+.btn-hero-secondary:hover {
+  background-color: #FFF;
+  color: #1C1C1C;
+}
+
+/* Teaser */
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  color: #1C1C1C;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+.teaser-card {
+  padding: 2rem;
+  border: 1px solid #eee;
+  background: #fafafa;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.teaser-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-color: #B89E68;
+}
+
+.teaser-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.25rem;
+  color: #1C1C1C;
+  margin-bottom: 0.5rem;
+}
+
+.teaser-card p {
+  color: #666;
+}
+
+.link-more {
+  color: #B89E68;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.link-more:hover {
+  border-bottom-color: #B89E68;
+}
+
+/* CTA */
+.cta-section {
+  background-color: #1C1C1C;
+  color: #FFF;
+}

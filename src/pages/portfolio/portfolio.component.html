@@ -1,0 +1,80 @@
+
+<div class="pt-24">
+  <section class="page-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+         <h1 class="page-title">Portfólio</h1>
+         <div class="page-decoration"></div>
+         <p class="page-subtitle">Uma seleção dos nossos projetos mais emblemáticos.</p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        @for (project of projects; track project.id) {
+          <div (click)="openProject(project)" class="project-card group relative overflow-hidden cursor-pointer">
+            <img [ngSrc]="project.coverImage" width="800" height="600" [alt]="project.title" class="project-image w-full h-auto transition-transform duration-500 group-hover:scale-110">
+            <div class="overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+               <span class="category text-pilar-gold text-sm font-bold uppercase tracking-wider mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{{ project.category }}</span>
+               <h3 class="title text-white font-serif text-xl mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">{{ project.title }}</h3>
+               <p class="location text-gray-300 text-sm flex items-center gap-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                {{ project.location }}
+               </p>
+               <p class="text-xs text-pilar-gold mt-4 opacity-0 group-hover:opacity-100 transition-opacity delay-200 uppercase tracking-widest font-bold">Ver Galeria +</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  @if (selectedProject()) {
+    <div class="lightbox-overlay" (click)="closeProject()">
+      
+      <!-- Close Button -->
+      <button class="close-btn" (click)="closeProject()">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Main Content -->
+      <div class="lightbox-content" (click)="$event.stopPropagation()">
+        
+        <!-- Image Container -->
+        <div class="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center bg-black">
+           <img [src]="currentImageUrl()" class="max-w-full max-h-full object-contain" [alt]="selectedProject()?.title">
+           
+           <!-- Navigation Arrows -->
+           <button class="nav-btn prev" (click)="prevImage($event)">
+             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+           </button>
+           <button class="nav-btn next" (click)="nextImage($event)">
+             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+           </button>
+        </div>
+
+        <!-- Info & Thumbnails -->
+        <div class="mt-4 text-center">
+           <h3 class="text-white font-serif text-2xl mb-1">{{ selectedProject()?.title }}</h3>
+           <p class="text-gray-400 text-sm mb-4">{{ currentImageIndex() + 1 }} / {{ selectedProject()?.gallery?.length }}</p>
+           
+           <!-- Thumbnails Strip -->
+           <div class="flex gap-2 justify-center overflow-x-auto py-2 px-4">
+             @for (thumb of selectedProject()?.gallery; track $index) {
+               <button 
+                  (click)="setImage($index, $event)"
+                  class="w-16 h-16 md:w-20 md:h-20 flex-shrink-0 border-2 transition-all duration-300"
+                  [class.border-pilar-gold]="currentImageIndex() === $index"
+                  [class.border-transparent]="currentImageIndex() !== $index"
+                  [class.opacity-50]="currentImageIndex() !== $index">
+                  <img [src]="thumb" class="w-full h-full object-cover">
+               </button>
+             }
+           </div>
+        </div>
+
+      </div>
+    </div>
+  }
+</div>

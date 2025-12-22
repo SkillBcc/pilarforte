@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <title>Pilar Forte | Engenharia & Construção</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'pilar-gold': '#B89E68',
+            'pilar-dark': '#1C1C1C',
+            'pilar-gray': '#F4F4F4',
+          },
+          fontFamily: {
+            'serif': ['Cinzel', 'serif'],
+            'sans': ['Lato', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* GLOBAL STYLES */
+    body {
+      font-family: 'Lato', sans-serif;
+      color: #1C1C1C;
+      background-color: #fff;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* NAVIGATION */
+    .nav-container {
+      background-color: rgba(28, 28, 28, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(184, 158, 104, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .brand-name {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 2px;
+      color: #FFFFFF;
+    }
+
+    .brand-tagline {
+      color: #B89E68;
+      letter-spacing: 1px;
+    }
+
+    .logo-box {
+      background-color: #B89E68;
+      color: #1C1C1C;
+    }
+
+    .nav-link {
+      color: #F4F4F4;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+
+    .nav-link:hover {
+      color: #B89E68;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: #B89E68;
+      transition: width 0.3s;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .btn-contact {
+      background-color: #B89E68;
+      color: #1C1C1C;
+      padding: 0.6rem 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-contact:hover {
+      background-color: #FFFFFF;
+    }
+
+    /* MOBILE MENU */
+    .mobile-menu {
+      background-color: #1C1C1C;
+      border-top: 1px solid #333;
+    }
+    .mobile-menu a {
+      color: #F4F4F4;
+      text-decoration: none;
+    }
+    .mobile-menu a.highlight {
+      color: #B89E68;
+    }
+    .hidden {
+      display: none;
+    }
+
+    /* HERO SECTION */
+    .hero-overlay {
+      background: linear-gradient(90deg, rgba(28,28,28,0.9) 0%, rgba(28,28,28,0.6) 100%);
+    }
+
+    .hero-line {
+      width: 60px;
+      height: 4px;
+      background-color: #B89E68;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      line-height: 1.2;
+      color: #FFF;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 3.5rem;
+      }
+    }
+
+    .text-highlight {
+      color: #B89E68;
+    }
+
+    .hero-description {
+      color: #DDD;
+      font-size: 1.125rem;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+    }
+
+    .btn-hero-primary {
+      display: inline-block;
+      background-color: #B89E68;
+      color: #1C1C1C;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      border: 2px solid #B89E68;
+      text-decoration: none;
+    }
+
+    .btn-hero-primary:hover {
+      background-color: transparent;
+      color: #B89E68;
+    }
+
+    .btn-hero-secondary {
+      display: inline-block;
+      background-color: transparent;
+      color: #FFF;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      border: 2px solid #FFF;
+      text-decoration: none;
+    }
+
+    .btn-hero-secondary:hover {
+      background-color: #FFF;
+      color: #1C1C1C;
+    }
+
+    /* SECTIONS */
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      color: #1C1C1C;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      color: #666;
+      max-width: 800px;
+      margin: 0 auto 3rem auto;
+      line-height: 1.6;
+    }
+
+    .teaser-card {
+      padding: 2rem;
+      border: 1px solid #eee;
+      background: #fafafa;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .teaser-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-color: #B89E68;
+    }
+
+    .teaser-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      color: #1C1C1C;
+      margin-bottom: 0.5rem;
+    }
+
+    .teaser-card p {
+      color: #666;
+    }
+
+    .link-more {
+      color: #B89E68;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .link-more:hover {
+      border-bottom-color: #B89E68;
+    }
+
+    .cta-section {
+      background-color: #1C1C1C;
+      color: #FFF;
+    }
+
+    /* FOOTER */
+    .footer-base {
+      background-color: #1C1C1C;
+      color: #888;
+      border-top: 4px solid #B89E68;
+    }
+
+    .footer-base .brand {
+      color: #B89E68;
+      font-family: 'Cinzel', serif;
+    }
+
+    .footer-base a:hover {
+      color: #B89E68;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 nav-container">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-24">
+        
+        <!-- Logo Area -->
+        <a href="#" class="flex-shrink-0 flex items-center gap-3 cursor-pointer" style="text-decoration: none;">
+          <div class="relative w-12 h-12 flex items-center justify-center rounded-full logo-box">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+               <path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z"/>
+            </svg>
+          </div>
+          <div class="flex flex-col logo-text">
+            <span class="text-2xl font-bold text-white brand-name">PILAR FORTE</span>
+            <span class="text-[10px] uppercase font-light brand-tagline">Engenharia & Construção</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8">
+            <a href="#" class="nav-link">INÍCIO</a>
+            <a href="#" class="nav-link">A EMPRESA</a>
+            <a href="#" class="nav-link">SERVIÇOS</a>
+            <a href="#" class="nav-link">PORTFÓLIO</a>
+            <a href="#" class="btn-contact rounded-sm text-sm">CONTACTOS</a>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="-mr-2 flex md:hidden">
+          <button onclick="toggleMenu()" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+            <span class="sr-only">Abrir menu</span>
+            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu" class="hidden md:hidden mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium">INÍCIO</a>
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium">A EMPRESA</a>
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium">SERVIÇOS</a>
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium">PORTFÓLIO</a>
+        <a href="#" class="highlight block px-3 py-2 rounded-md text-base font-medium">CONTACTOS</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Area (HOME PAGE) -->
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img src="https://picsum.photos/id/192/1920/1080" alt="Arquitetura Moderna" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute inset-0 hero-overlay z-10"></div>
+      
+      <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left w-full">
+        <div class="md:w-2/3">
+          <div class="hero-line"></div>
+          <h1 class="hero-title">
+            Construímos o Futuro <br>
+            com <span class="text-highlight">Solidez</span> e <span class="text-highlight">Elegância</span>.
+          </h1>
+          <p class="hero-description">
+            Empresa de Engenharia Civil e Construção sediada em Lisboa. 
+            Transformamos projetos em realidade com rigor técnico e acabamentos de luxo.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <a href="#" class="btn-hero-primary">
+              Pedir Orçamento
+            </a>
+            <a href="#" class="btn-hero-secondary">
+              Ver Projetos
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro Teaser -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="section-title">A Excelência Pilar Forte</h2>
+        <p class="section-subtitle">
+          Com mais de uma década de experiência no mercado português, a Pilar Forte destaca-se pela atenção ao detalhe e pela gestão eficiente de cada obra. Seja uma remodelação de luxo ou uma construção de raiz, a nossa assinatura é sinónimo de qualidade.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+           <div class="teaser-card">
+              <h3>Engenharia</h3>
+              <p>Projetos estruturais rigorosos.</p>
+           </div>
+           <div class="teaser-card">
+              <h3>Construção</h3>
+              <p>Execução com materiais premium.</p>
+           </div>
+           <div class="teaser-card">
+              <h3>Design</h3>
+              <p>Acabamentos esteticamente perfeitos.</p>
+           </div>
+        </div>
+        <div class="mt-12">
+          <a href="#" class="link-more">Conheça a nossa história</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="py-16 cta-section relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <h2 class="font-serif text-3xl font-bold mb-4">Tem um projeto em mente?</h2>
+        <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Não deixe para amanhã a obra que pode começar hoje. Fale com os nossos especialistas.</p>
+        <a href="#" class="btn-hero-primary">
+          Contacte-nos
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-base py-12 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-center md:text-left">
+        <span class="text-lg font-bold brand">PILAR FORTE</span>
+        <p class="mt-1">&copy; 2024 Pilar Forte Engenharia & Construção. Todos os direitos reservados.</p>
+      </div>
+      <div class="flex space-x-6">
+        <a href="#" class="transition-colors">Política de Privacidade</a>
+        <a href="#" class="transition-colors">Termos e Condições</a>
+        <a href="#" class="transition-colors">Livro de Reclamações</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+      }
+    }
+  </script>
+</body>
+</html>

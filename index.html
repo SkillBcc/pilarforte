@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <title>Pilar Forte | Engenharia & Construção</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-pilar-gold: #B89E68;
+      --color-pilar-dark: #1C1C1C;
+      --color-pilar-gray: #F4F4F4;
+      --font-serif: 'Cinzel', serif;
+      --font-sans: 'Lato', sans-serif;
+    }
+
+    /* Smooth scrolling for anchor links */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'pilar-gold': '#B89E68',
+            'pilar-dark': '#1C1C1C',
+            'pilar-gray': '#F4F4F4',
+          },
+          fontFamily: {
+            'serif': ['Cinzel', 'serif'],
+            'sans': ['Lato', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<script type="importmap">
+{
+  "imports": {
+    "rxjs": "https://esm.sh/rxjs@^7.8.2?conditions=es2015",
+    "rxjs/operators": "https://esm.sh/rxjs@^7.8.2/operators?conditions=es2015",
+    "rxjs/ajax": "https://esm.sh/rxjs@^7.8.2/ajax?conditions=es2015",
+    "rxjs/webSocket": "https://esm.sh/rxjs@^7.8.2/webSocket?conditions=es2015",
+    "rxjs/testing": "https://esm.sh/rxjs@^7.8.2/testing?conditions=es2015",
+    "rxjs/fetch": "https://esm.sh/rxjs@^7.8.2/fetch?conditions=es2015",
+    "@angular/platform-browser": "https://next.esm.sh/@angular/platform-browser@^21.0.6?external=rxjs",
+    "@angular/common": "https://next.esm.sh/@angular/common@^21.0.6?external=rxjs",
+    "@angular/core": "https://next.esm.sh/@angular/core@^21.0.6?external=rxjs",
+    "@angular/forms": "https://next.esm.sh/@angular/forms@^21.0.6?external=rxjs",
+    "@angular/router": "https://next.esm.sh/@angular/router@^21.0.6?external=rxjs",
+    "@angular/compiler": "https://next.esm.sh/@angular/compiler@^21.0.6?external=rxjs"
+  }
+}
+</script>
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+  <app-root></app-root>
+</body>
+</html>
