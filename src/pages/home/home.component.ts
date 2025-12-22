@@ -20,12 +20,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   
   // Lista de imagens para o slideshow (Estilo: Construção/Engenharia Sóbrio)
   heroImages: string[] = [
-    // 1. Original (Engenheiros com planos)
-    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1920&auto=format&fit=crop',
-    // 2. Estrutura em betão e gruas (Atmosfera construção pesada)
-    'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1920&auto=format&fit=crop',
     // 3. Engenheiros a apontar/discutir em obra
     'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?q=80&w=1920&auto=format&fit=crop',
+    // 2. Estrutura em betão e gruas (Atmosfera construção pesada)
+    'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1920&auto=format&fit=crop',
+    // 1. Original (Engenheiros com planos)
+    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1920&auto=format&fit=crop',
     // 4. Detalhe arquitetónico/Fachada em construção
     'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop',
     // 5. Trabalhador/Capacete e foco técnico
