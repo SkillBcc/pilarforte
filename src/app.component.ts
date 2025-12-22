@@ -1,6 +1,5 @@
-
-import { Component, signal, ChangeDetectionStrategy, PLATFORM_ID, inject } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, signal, ChangeDetectionStrategy, PLATFORM_ID, inject, Inject } from '@angular/core';
+import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -20,15 +19,16 @@ export class AppComponent {
   currentYear = new Date().getFullYear();
 
   private router = inject(Router);
-  private platformId = inject(PLATFORM_ID);
 
-  constructor() {
+  constructor(@Inject(DOCUMENT) private document: Document, @Inject(PLATFORM_ID) private platformId: Object) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.mobileMenuOpen.set(false);
         // Scroll restoration is handled by provideRouter configuration (withInMemoryScrolling)
       }
     });
+
+    this.initFaviconTheme();
   }
 
   onWindowScroll() {
@@ -44,5 +44,25 @@ export class AppComponent {
 
   closeMenu() {
     this.mobileMenuOpen.set(false);
+  }
+
+  // Detect and update favicon based on system theme preference (Dark Mode)
+  private initFaviconTheme() {
+    if (isPlatformBrowser(this.platformId)) {
+      const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      
+      const updateFavicon = (isDark: boolean) => {
+        const faviconLink = this.document.getElementById('app-favicon') as HTMLLinkElement;
+        if (faviconLink) {
+          faviconLink.href = isDark ? 'favicon-white.svg' : 'favicon.svg';
+        }
+      };
+
+      // Initial check
+      updateFavicon(darkQuery.matches);
+
+      // Listen for changes
+      darkQuery.addEventListener('change', (e) => updateFavicon(e.matches));
+    }
   }
 }
