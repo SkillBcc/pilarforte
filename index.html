@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
@@ -20,6 +21,43 @@
     /* Smooth scrolling for anchor links */
     html {
       scroll-behavior: smooth;
+    }
+
+    /* GLOBAL ANIMATIONS */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Utility class for page transitions */
+    .page-animate {
+      animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    
+    /* Delay utilities */
+    .delay-100 { animation-delay: 100ms; }
+    .delay-200 { animation-delay: 200ms; }
+    .delay-300 { animation-delay: 300ms; }
+
+    /* Button hover enhancement */
+    .btn-hover-effect {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .btn-hover-effect:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(184, 158, 104, 0.3);
     }
   </style>
   <script>

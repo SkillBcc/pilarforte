@@ -2,12 +2,12 @@
 <!-- Hero Section -->
 <section class="relative h-screen flex items-center justify-center overflow-hidden">
   <div class="absolute inset-0 z-0">
-    <img ngSrc="https://picsum.photos/id/192/1920/1080" width="1920" height="1080" priority alt="Arquitetura Moderna" class="w-full h-full object-cover">
+    <img ngSrc="https://picsum.photos/id/192/1920/1080" width="1920" height="1080" priority alt="Arquitetura Moderna" class="w-full h-full object-cover animate-[fadeIn_1.5s_ease-out]">
   </div>
   <div class="absolute inset-0 hero-overlay z-10"></div>
   
   <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left w-full">
-    <div class="md:w-2/3">
+    <div class="md:w-2/3 page-animate">
       <div class="hero-line"></div>
       <h1 class="hero-title">
         Construímos o Futuro <br>
@@ -18,10 +18,10 @@
         Transformamos projetos em realidade com rigor técnico e acabamentos de luxo.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-        <a routerLink="/contactos" class="btn-hero-primary">
+        <a routerLink="/contactos" class="btn-hero-primary btn-hover-effect">
           Pedir Orçamento
         </a>
-        <a routerLink="/portfolio" class="btn-hero-secondary">
+        <a routerLink="/portfolio" class="btn-hero-secondary btn-hover-effect">
           Ver Projetos
         </a>
       </div>
@@ -32,25 +32,27 @@
 <!-- Intro Teaser -->
 <section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="section-title">A Excelência Pilar Forte</h2>
-    <p class="section-subtitle">
-      Com mais de uma década de experiência no mercado português, a Pilar Forte destaca-se pela atenção ao detalhe e pela gestão eficiente de cada obra. Seja uma remodelação de luxo ou uma construção de raiz, a nossa assinatura é sinónimo de qualidade.
-    </p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-       <div class="teaser-card">
+    <div class="page-animate delay-200">
+      <h2 class="section-title">A Excelência Pilar Forte</h2>
+      <p class="section-subtitle">
+        Com mais de uma década de experiência no mercado português, a Pilar Forte destaca-se pela atenção ao detalhe e pela gestão eficiente de cada obra. Seja uma remodelação de luxo ou uma construção de raiz, a nossa assinatura é sinónimo de qualidade.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 page-animate delay-300">
+       <div class="teaser-card group">
           <h3>Engenharia</h3>
           <p>Projetos estruturais rigorosos.</p>
        </div>
-       <div class="teaser-card">
+       <div class="teaser-card group">
           <h3>Construção</h3>
           <p>Execução com materiais premium.</p>
        </div>
-       <div class="teaser-card">
+       <div class="teaser-card group">
           <h3>Design</h3>
           <p>Acabamentos esteticamente perfeitos.</p>
        </div>
     </div>
-    <div class="mt-12">
+    <div class="mt-12 page-animate delay-300">
       <a routerLink="/empresa" class="link-more">Conheça a nossa história</a>
     </div>
   </div>
@@ -59,10 +61,10 @@
 <!-- Call to Action Banner -->
 <section class="py-16 cta-section relative overflow-hidden">
   <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center page-animate">
     <h2 class="font-serif text-3xl font-bold mb-4">Tem um projeto em mente?</h2>
     <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Não deixe para amanhã a obra que pode começar hoje. Fale com os nossos especialistas.</p>
-    <a routerLink="/contactos" class="btn-hero-primary">
+    <a routerLink="/contactos" class="btn-hero-primary btn-hover-effect">
       Contacte-nos
     </a>
   </div>

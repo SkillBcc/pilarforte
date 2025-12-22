@@ -1,6 +1,6 @@
 
 <div class="pt-24">
-  <section class="page-header">
+  <section class="page-header page-animate">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
          <h1 class="page-title">Contactos</h1>
          <div class="page-decoration"></div>
@@ -10,7 +10,7 @@
 
   <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white shadow-xl rounded-sm overflow-hidden border border-gray-100">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white shadow-xl rounded-sm overflow-hidden border border-gray-100 page-animate delay-100">
         
         <!-- Contact Info Panel -->
         <div class="info-panel p-12 bg-dark text-white flex flex-col justify-between">
@@ -87,7 +87,7 @@
               <textarea formControlName="message" rows="4" class="w-full border-b-2 border-gray-200 py-2 focus:outline-none focus:border-gold transition-colors bg-transparent" placeholder="Como podemos ajudar?"></textarea>
             </div>
 
-            <button type="submit" [disabled]="contactForm.invalid" class="w-full bg-dark text-white py-3 px-6 uppercase tracking-wider font-bold hover:bg-gold hover:text-dark transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+            <button type="submit" [disabled]="contactForm.invalid" class="btn-primary w-full py-3 px-6 uppercase tracking-wider font-bold hover:opacity-90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
               ENVIAR PEDIDO
             </button>
           </form>
