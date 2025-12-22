@@ -7,7 +7,6 @@ import { routes } from './src/app.routes';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    // Use the stable API for zoneless change detection
     provideZonelessChangeDetection(),
     provideRouter(
       routes, 
