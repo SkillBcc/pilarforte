@@ -79,7 +79,7 @@
 
 /* Mobile Menu */
 .mobile-menu {
-  background-color: #ff0000;
+  background-color: rgba(28, 28, 28, 0.88);
   border-top: 1px solid #333;
 }
 
@@ -87,7 +87,12 @@
   color: #F4F4F4;
 }
 
-.mobile-menu a.highlight {
+/* Active mobile menu item */
+.mobile-menu a.active {
+  color: #B89E68;
+}
+
+.mobile-menu a.highlight::first-letter {
   color: #B89E68;
 }
 

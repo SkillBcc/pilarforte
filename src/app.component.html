@@ -73,11 +73,11 @@
   @if (mobileMenuOpen()) {
     <div class="md:hidden mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <a routerLink="/" (click)="closeMenu()" class="block px-3 py-2 rounded-md text-base font-medium">INÍCIO</a>
-        <a routerLink="/empresa" (click)="closeMenu()" class="block px-3 py-2 rounded-md text-base font-medium">A EMPRESA</a>
-        <a routerLink="/servicos" (click)="closeMenu()" class="block px-3 py-2 rounded-md text-base font-medium">SERVIÇOS</a>
-        <a routerLink="/portfolio" (click)="closeMenu()" class="block px-3 py-2 rounded-md text-base font-medium">PORTFÓLIO</a>
-        <a routerLink="/contactos" (click)="closeMenu()" class="highlight block px-3 py-2 rounded-md text-base font-medium">CONTACTOS</a>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()" class="block px-3 py-2 rounded-md text-base font-medium">INÍCIO</a>
+        <a routerLink="/empresa" routerLinkActive="active" (click)="closeMenu()" class="block px-3 py-2 rounded-md text-base font-medium">A EMPRESA</a>
+        <a routerLink="/servicos" routerLinkActive="active" (click)="closeMenu()" class="block px-3 py-2 rounded-md text-base font-medium">SERVIÇOS</a>
+        <a routerLink="/portfolio" routerLinkActive="active" (click)="closeMenu()" class="block px-3 py-2 rounded-md text-base font-medium">PORTFÓLIO</a>
+        <a routerLink="/contactos" routerLinkActive="active" (click)="closeMenu()" class="highlight block px-3 py-2 rounded-md text-base font-medium">CONTACTOS</a>
       </div>
     </div>
   }
