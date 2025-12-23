@@ -39,19 +39,19 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       title: 'Construção de Raiz',
       description: 'Do projeto à chave na mão, edificamos a sua visão com rigor técnico e materiais de excelência.',
       link: '/servicos/construcao-raiz',
-      image: 'https://picsum.photos/id/128/600/400'
+      image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=600&h=400&auto=format&fit=crop'
     },
     {
       title: 'Remodelação & Reabilitação',
       description: 'Renovação integral de interiores e recuperação de edifícios, respeitando a traça original.',
       link: '/servicos/remodelacao',
-      image: 'https://picsum.photos/id/203/600/400'
+      image: 'https://images.unsplash.com/photo-1574359411659-15573a27fd0c?q=80&w=600&h=400&auto=format&fit=crop'
     },
     {
       title: 'Projetos de Engenharia',
       description: 'Cálculos estruturais, especialidades e gestão de obra para garantir a máxima segurança.',
       link: '/servicos/engenharia',
-      image: 'https://picsum.photos/id/609/600/400'
+      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=600&h=400&auto=format&fit=crop'
     }
   ];
 
@@ -59,17 +59,17 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Villa Moderna',
       location: 'Cascais',
-      image: 'https://picsum.photos/id/122/800/600'
+      image: 'https://images.unsplash.com/photo-1600596542815-60c37c6525fa?q=80&w=800&h=600&auto=format&fit=crop'
     },
     {
       title: 'Apartamento Pombalino',
       location: 'Lisboa (Chiado)',
-      image: 'https://picsum.photos/id/188/800/600'
+      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&h=600&auto=format&fit=crop'
     },
     {
       title: 'Escritórios Corporativos',
       location: 'Parque das Nações',
-      image: 'https://picsum.photos/id/24/800/600'
+      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&h=600&auto=format&fit=crop'
     }
   ];
 
