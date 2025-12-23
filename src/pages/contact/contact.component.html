@@ -21,11 +21,11 @@
             <div class="space-y-8">
               <div class="contact-item flex gap-4">
                 <div class="icon-box text-gold">
-                  <img src="assets/images/icon-location.svg" class="w-6 h-6" alt="Sede">
+                  <img src="assets/images/icon-location.svg" alt="Onde Estamos" width="60" height="60">
                 </div>
                 <div>
-                  <p class="label text-gray-400 text-xs uppercase tracking-wide">Sede</p>
-                  <p class="value text-lg">Avenida da Liberdade, 100<br>1250-144 Lisboa, Portugal</p>
+                  <p class="label text-gray-400 text-xs uppercase tracking-wide">Onde Estamos</p>
+                  <p class="value text-lg">Alenquer, Amadora, Arruda dos Vinhos, Azambuja, Cadaval, Cascais, Lisboa, Loures, Lourinhã, Mafra, Odivelas, Oeiras, Sintra, Sobral de Monte Agraço, Torres Vedras, Vila Franca de Xira, Montijo , Barreiro, Seixal e Setúbal.</p>
                 </div>
               </div>
               
@@ -36,7 +36,6 @@
                 <div>
                   <p class="label text-gray-400 text-xs uppercase tracking-wide">Email</p>
                   <p class="value text-lg">geral&#64;pilarforte.pt</p>
-                  <p class="value text-lg">orcamentos&#64;pilarforte.pt</p>
                 </div>
               </div>
 
@@ -47,7 +46,6 @@
                 <div>
                   <p class="label text-gray-400 text-xs uppercase tracking-wide">Telefone</p>
                   <p class="value text-lg">+351 210 000 000</p>
-                  <p class="value sub text-xs text-gray-500">(Chamada para a rede fixa nacional)</p>
                 </div>
               </div>
             </div>
@@ -119,7 +117,7 @@
 
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1">Mensagem *</label>
-              <textarea formControlName="message" rows="4" 
+              <textarea formControlName="message" rows="2" 
                         class="w-full border-b-2 py-2 focus:outline-none transition-colors duration-300 bg-transparent"
                         [ngClass]="{'border-red-500 focus:border-red-500 text-red-500': contactForm.get('message')?.invalid && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched), 'border-gray-200 focus:border-gold text-black': !(contactForm.get('message')?.invalid && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched))}"
                         placeholder="Como podemos ajudar?"></textarea>
