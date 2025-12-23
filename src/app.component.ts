@@ -1,6 +1,7 @@
 import { Component, signal, ChangeDetectionStrategy, PLATFORM_ID, inject, Inject } from '@angular/core';
 import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
+import { AutoTranslateService } from './services/auto-translate.service';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,8 @@ export class AppComponent {
   currentYear = new Date().getFullYear();
 
   private router = inject(Router);
+  translateService = inject(AutoTranslateService);
+  currentLang = this.translateService.currentLang;
 
   constructor(@Inject(DOCUMENT) private document: Document, @Inject(PLATFORM_ID) private platformId: Object) {
     this.router.events.subscribe((event) => {
@@ -31,14 +34,16 @@ export class AppComponent {
     this.initFaviconTheme();
   }
 
+  switchLang(lang: string) {
+    this.translateService.switchLang(lang);
+  }
+
   onWindowScroll() {
     if (isPlatformBrowser(this.platformId)) {
       // Ativa o modo 'scrolled' após 20px de descida
       this.isScrolled.set(window.scrollY > 20);
     }
-  }
-
-  toggleMenu() {
+  }  toggleMenu() {
     this.mobileMenuOpen.update(v => !v);
   }
 

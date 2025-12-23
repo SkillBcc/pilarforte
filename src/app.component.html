@@ -24,7 +24,7 @@
 
         <!-- Typography (Right Side) -->
         <div class="flex flex-col justify-center transition-all duration-300 origin-left" [class.scale-90]="isScrolled()">
-          <span class="text-2xl font-serif font-bold text-white tracking-widest leading-none drop-shadow-sm">PILAR FORTE</span>
+          <span class="notranslate text-2xl font-serif font-bold text-white tracking-widest leading-none drop-shadow-sm">PILAR FORTE</span>
           <div class="flex items-center gap-2 mt-1 transition-opacity duration-300" 
                [class.opacity-0]="isScrolled()" 
                [class.h-0]="isScrolled()"
@@ -43,6 +43,19 @@
           <a routerLink="/servicos" routerLinkActive="active" class="nav-link">SERVIÇOS</a>
           <a routerLink="/portfolio" routerLinkActive="active" class="nav-link">PORTFÓLIO</a>
           <a routerLink="/contactos" routerLinkActive="active" class="btn-contact rounded-sm text-sm">CONTACTOS</a>
+          
+          <!-- Language Selector -->
+          <div class="flex gap-2 ml-4 pl-4 border-l border-gray-600">
+            <button (click)="switchLang('pt')" 
+                    [class.opacity-100]="currentLang() === 'pt'"
+                    [class.opacity-50]="currentLang() !== 'pt'"
+                    class="text-xs font-bold uppercase tracking-wider text-pilar-gold hover:opacity-100 transition-opacity duration-300">PT</button>
+            <span class="text-gray-600">/</span>
+            <button (click)="switchLang('en')" 
+                    [class.opacity-100]="currentLang() === 'en'"
+                    [class.opacity-50]="currentLang() !== 'en'"
+                    class="text-xs font-bold uppercase tracking-wider text-pilar-gold hover:opacity-100 transition-opacity duration-300">EN</button>
+          </div>
         </div>
       </div>
 
@@ -79,7 +92,7 @@
 <footer class="footer-base py-12 text-sm">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
       <div class="text-center md:text-left">
-      <span class="text-lg font-bold brand">PILAR FORTE</span>
+      <span class="text-lg font-bold brand notranslate">PILAR FORTE</span>
       <p class="mt-1">&copy; {{ currentYear }} Pilar Forte Engenharia & Construção. Todos os direitos reservados.</p>
       <p class="mt-1 text-xs">A marca Pilar Forte faz parte do Grupo <a href="https://flexsolutions.pt/" target="_blank" class="text-gray-300">Flex Solutions</a>.</p>
     </div>

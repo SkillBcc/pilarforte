@@ -114,8 +114,30 @@
   }
 }
 </script>
+
+<!-- Google Translate API -->
+<script type="text/javascript">
+  window.googleTranslateElementInit = function() {
+    // Initialize Google Translate element
+    new google.translate.TranslateElement({
+      pageLanguage: 'pt',
+      includedLanguages: 'pt,en',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      gaTrack: true
+    }, 'google_translate_element');
+  };
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<style>
+  /* Hide Google Translate banner and UI elements */
+  .goog-te-banner-frame { display: none !important; }
+  body { top: 0 !important; }
+  .goog-te-gadget { color: transparent; }
+  .goog-te-gadget .goog-te-combo { color: white; }
+</style>
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased">
+  <div id="google_translate_element" style="display: none;"></div>
   <app-root></app-root>
 </body>
 </html>
