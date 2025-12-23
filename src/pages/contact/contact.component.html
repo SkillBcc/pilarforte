@@ -67,23 +67,23 @@
           <h3 class="form-title font-serif text-2xl text-dark mb-6">Envie-nos uma mensagem</h3>
           <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Nome Completo *</label>
               <input type="text" formControlName="name" class="w-full border-b-2 border-gray-200 py-2 focus:outline-none focus:border-gold transition-colors bg-transparent" placeholder="Seu nome">
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
                 <input type="email" formControlName="email" class="w-full border-b-2 border-gray-200 py-2 focus:outline-none focus:border-gold transition-colors bg-transparent" placeholder="email@exemplo.com">
               </div>
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Telefone *</label>
                 <input type="tel" formControlName="phone" class="w-full border-b-2 border-gray-200 py-2 focus:outline-none focus:border-gold transition-colors bg-transparent" placeholder="+351 ...">
               </div>
             </div>
 
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Mensagem</label>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Mensagem *</label>
               <textarea formControlName="message" rows="4" class="w-full border-b-2 border-gray-200 py-2 focus:outline-none focus:border-gold transition-colors bg-transparent" placeholder="Como podemos ajudar?"></textarea>
             </div>
 
