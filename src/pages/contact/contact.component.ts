@@ -43,6 +43,8 @@ export class ContactComponent {
           this.submitError = true;
         }
       });
+    } else {
+      this.contactForm.markAllAsTouched();
     }
   }
 }
