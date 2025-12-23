@@ -2,12 +2,12 @@
 :host {
   display: block;
   font-family: 'Lato', sans-serif;
-  color: #1C1C1C;
+  color: #ff0000;
 }
 
 /* Navigation */
 .nav-container {
-  background-color: rgba(28, 28, 28, 0.95);
+  background-color: rgba(255, 0, 0, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(184, 158, 104, 0.2);
   transition: all 0.3s ease;
@@ -79,7 +79,7 @@
 
 /* Mobile Menu */
 .mobile-menu {
-  background-color: #1C1C1C;
+  background-color: #ff0000;
   border-top: 1px solid #333;
 }
 
