@@ -36,12 +36,11 @@ export class PortfolioComponent implements OnDestroy {
       title: 'Villa Moderna',
       location: 'Cascais',
       category: 'Construção Nova',
-      coverImage: 'https://picsum.photos/id/122/800/600',
+      coverImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&h=600&auto=format&fit=crop',
       gallery: [
-        'https://picsum.photos/id/122/1200/800',
-        'https://picsum.photos/id/123/1200/800',
-        'https://picsum.photos/id/124/1200/800',
-        'https://picsum.photos/id/125/1200/800'
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&h=900&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&h=900&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200&h=900&auto=format&fit=crop'
       ]
     },
     {
@@ -49,12 +48,11 @@ export class PortfolioComponent implements OnDestroy {
       title: 'Apartamento Pombalino',
       location: 'Chiado, Lisboa',
       category: 'Remodelação',
-      coverImage: 'https://picsum.photos/id/188/800/600',
+      coverImage: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?q=80&w=800&h=600&auto=format&fit=crop',
       gallery: [
-        'https://picsum.photos/id/188/1200/800',
-        'https://picsum.photos/id/189/1200/800',
-        'https://picsum.photos/id/190/1200/800',
-        'https://picsum.photos/id/191/1200/800'
+        'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?q=80&w=1200&h=900&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1200&h=900&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1200&h=900&auto=format&fit=crop',
       ]
     },
     {
@@ -62,11 +60,10 @@ export class PortfolioComponent implements OnDestroy {
       title: 'Escritórios Corporativos',
       location: 'Parque das Nações',
       category: 'Comercial',
-      coverImage: 'https://picsum.photos/id/24/800/600',
+      coverImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&h=600&auto=format&fit=crop',
       gallery: [
-        'https://picsum.photos/id/24/1200/800',
-        'https://picsum.photos/id/20/1200/800',
-        'https://picsum.photos/id/4/1200/800'
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&h=900&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1200&h=900&auto=format&fit=crop',
       ]
     },
     {
@@ -74,11 +71,10 @@ export class PortfolioComponent implements OnDestroy {
       title: 'Moradia T4',
       location: 'Sintra',
       category: 'Construção Nova',
-      coverImage: 'https://picsum.photos/id/235/800/600',
+      coverImage: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&h=600&auto=format&fit=crop',
       gallery: [
-        'https://picsum.photos/id/235/1200/800',
-        'https://picsum.photos/id/236/1200/800',
-        'https://picsum.photos/id/238/1200/800'
+        'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1200&h=900&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1200&h=900&auto=format&fit=crop',
       ]
     },
     {
@@ -86,11 +82,10 @@ export class PortfolioComponent implements OnDestroy {
       title: 'Loft Industrial',
       location: 'Marvila',
       category: 'Reabilitação',
-      coverImage: 'https://picsum.photos/id/203/800/600',
+      coverImage: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=800&h=600&auto=format&fit=crop',
       gallery: [
-        'https://picsum.photos/id/203/1200/800',
-        'https://picsum.photos/id/204/1200/800',
-        'https://picsum.photos/id/206/1200/800'
+        'https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1200&h=900&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?q=80&w=1200&h=900&auto=format&fit=crop',
       ]
     },
     {
@@ -98,11 +93,10 @@ export class PortfolioComponent implements OnDestroy {
       title: 'Restaurante Minimalista',
       location: 'Santos, Lisboa',
       category: 'Comercial',
-      coverImage: 'https://picsum.photos/id/439/800/600',
+      coverImage: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&h=600&auto=format&fit=crop',
       gallery: [
-        'https://picsum.photos/id/439/1200/800',
-        'https://picsum.photos/id/440/1200/800',
-        'https://picsum.photos/id/441/1200/800'
+        'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&h=900&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&h=900&auto=format&fit=crop',
       ]
     }
   ];
