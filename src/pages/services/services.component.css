@@ -56,6 +56,10 @@
   color: #1C1C1C;
 }
 
+.service-card:hover .icon-box img {
+  filter: brightness(0)
+}
+
 .service-title {
   font-family: 'Cinzel', serif;
   font-size: 1.25rem;
