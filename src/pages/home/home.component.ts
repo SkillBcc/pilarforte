@@ -59,12 +59,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Villa Moderna',
       location: 'Cascais',
-      image: 'https://images.unsplash.com/photo-1600596542815-60c37c6525fa?q=80&w=800&h=600&auto=format&fit=crop'
+      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&h=600&auto=format&fit=crop'
     },
     {
       title: 'Apartamento Pombalino',
       location: 'Lisboa (Chiado)',
-      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&h=600&auto=format&fit=crop'
+      image: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?q=80&w=800&h=600&auto=format&fit=crop'
     },
     {
       title: 'Escritórios Corporativos',
