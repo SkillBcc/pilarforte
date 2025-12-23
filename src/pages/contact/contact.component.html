@@ -64,8 +64,24 @@
 
         <!-- Form Panel -->
         <div class="p-12">
-          <h3 class="form-title font-serif text-2xl text-dark mb-6">Envie-nos uma mensagem</h3>
-          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
+          <div *ngIf="submitSuccess" class="text-center py-12">
+            <div class="text-gold text-5xl mb-4">✓</div>
+            <h3 class="font-serif text-2xl text-dark mb-4">Mensagem Enviada!</h3>
+            <p class="text-gray-600 mb-8">Obrigado pelo seu contacto. A equipa Pilar Forte entrará em contacto brevemente.</p>
+            <button (click)="submitSuccess = false" class="btn-primary py-2 px-6 uppercase tracking-wider font-bold hover:opacity-90 transition-all duration-300">
+              Enviar nova mensagem
+            </button>
+          </div>
+
+          <div *ngIf="!submitSuccess">
+            <h3 class="form-title font-serif text-2xl text-dark mb-6">Envie-nos uma mensagem</h3>
+            
+            <div *ngIf="submitError" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6" role="alert">
+              <strong class="font-bold">Erro!</strong>
+              <span class="block sm:inline"> Ocorreu um erro ao enviar a mensagem. Por favor tente novamente.</span>
+            </div>
+
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1">Nome Completo *</label>
               <input type="text" formControlName="name" class="w-full border-b-2 border-gray-200 py-2 focus:outline-none focus:border-gold transition-colors bg-transparent" placeholder="Seu nome">
@@ -87,10 +103,11 @@
               <textarea formControlName="message" rows="4" class="w-full border-b-2 border-gray-200 py-2 focus:outline-none focus:border-gold transition-colors bg-transparent" placeholder="Como podemos ajudar?"></textarea>
             </div>
 
-            <button type="submit" [disabled]="contactForm.invalid" class="btn-primary w-full py-3 px-6 uppercase tracking-wider font-bold hover:opacity-90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
-              ENVIAR PEDIDO
+            <button type="submit" [disabled]="contactForm.invalid || isSubmitting" class="btn-primary w-full py-3 px-6 uppercase tracking-wider font-bold hover:opacity-90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+              {{ isSubmitting ? 'A ENVIAR...' : 'ENVIAR PEDIDO' }}
             </button>
           </form>
+          </div>
         </div>
       </div>
     </div>
