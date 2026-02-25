@@ -23,6 +23,17 @@
   margin: 1rem auto 0 auto;
 }
 
+.project-card {
+  width: 307px;
+  height: 230px;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .text-pilar-gold {
   color: #B89E68;
 }
@@ -40,7 +51,7 @@
   height: 100%;
   background-color: rgba(28, 28, 28, 0.95);
   backdrop-filter: blur(5px);
-  z-index: 100; /* Above Navbar */
+  z-index: 9998; /* Above nav (z-9000) */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,13 +70,29 @@
   top: 20px;
   right: 20px;
   color: #FFF;
-  z-index: 110;
+  z-index: 9999; /* Above overlay */
   padding: 10px;
   transition: color 0.3s;
 }
 
 .close-btn:hover {
   color: #B89E68;
+}
+
+.close-btn:hover .close-icon {
+  background-color: #B89E68;
+}
+
+.close-icon {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-color: #FFF;
+  -webkit-mask: url('/assets/images/icon-close.svg') no-repeat center;
+  mask: url('/assets/images/icon-close.svg') no-repeat center;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  transition: background-color 0.3s;
 }
 
 .nav-btn {

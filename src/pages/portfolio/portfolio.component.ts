@@ -33,26 +33,28 @@ export class PortfolioComponent implements OnDestroy {
   projects: ProjectItem[] = [
     {
       id: 1,
-      title: 'Villa Moderna',
+      title: 'Casa de Banho',
       location: 'Cascais',
-      category: 'Construção Nova',
-      coverImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&h=600&auto=format&fit=crop',
+      category: 'Remodelação',
+      coverImage: 'assets/portfolio/rem_01/01.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&h=900&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&h=900&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200&h=900&auto=format&fit=crop'
+        'assets/portfolio/rem_01/01.jpeg',
+        'assets/portfolio/rem_01/02.jpeg',
+        'assets/portfolio/rem_01/03.jpeg'
       ]
     },
     {
       id: 2,
-      title: 'Apartamento Pombalino',
+      title: 'Casa de Banho',
       location: 'Chiado, Lisboa',
       category: 'Remodelação',
-      coverImage: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?q=80&w=800&h=600&auto=format&fit=crop',
+      coverImage: 'assets/portfolio/rem_02/01.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?q=80&w=1200&h=900&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1200&h=900&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1200&h=900&auto=format&fit=crop',
+        'assets/portfolio/rem_02/01.jpeg',
+        'assets/portfolio/rem_02/02.jpeg',
+        'assets/portfolio/rem_02/03.jpeg',
+        'assets/portfolio/rem_02/04.jpeg',
+        'assets/portfolio/rem_02/04.jpeg',
       ]
     },
     {
