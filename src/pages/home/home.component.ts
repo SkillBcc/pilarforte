@@ -2,6 +2,7 @@
 import { Component, ElementRef, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, signal, OnInit } from '@angular/core';
 import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { PortfolioService, ProjectItem } from '../../services/portfolio.service';
 
 @Component({
   selector: 'app-home',
@@ -32,8 +33,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1920&auto=format&fit=crop'
   ];
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private el: ElementRef) {}
-
   featuredServices = [
     {
       title: 'Construção de Raiz',
@@ -55,23 +54,15 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   ];
 
-  featuredProjects = [
-    {
-      title: 'Villa Moderna',
-      location: 'Cascais',
-      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&h=600&auto=format&fit=crop'
-    },
-    {
-      title: 'Apartamento Pombalino',
-      location: 'Lisboa (Chiado)',
-      image: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?q=80&w=800&h=600&auto=format&fit=crop'
-    },
-    {
-      title: 'Escritórios Corporativos',
-      location: 'Parque das Nações',
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&h=600&auto=format&fit=crop'
-    }
-  ];
+  featuredProjects: ProjectItem[] = [];
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object, 
+    private el: ElementRef,
+    private portfolioService: PortfolioService
+  ) {
+    this.featuredProjects = this.portfolioService.getProjects().slice(0, 3);
+  }
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
