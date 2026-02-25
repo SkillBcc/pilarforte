@@ -3,6 +3,7 @@ import { Component, ElementRef, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, s
 import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PortfolioService, ProjectItem } from '../../services/portfolio.service';
+import { ServicesService, ServiceItem } from '../../services/services.service';
 
 @Component({
   selector: 'app-home',
@@ -33,35 +34,29 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1920&auto=format&fit=crop'
   ];
 
-  featuredServices = [
-    {
-      title: 'Construção de Raiz',
-      description: 'Do projeto à chave na mão, edificamos a sua visão com rigor técnico e materiais de excelência.',
-      link: '/servicos/construcao-raiz',
-      image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=600&h=400&auto=format&fit=crop'
-    },
-    {
-      title: 'Remodelação & Reabilitação',
-      description: 'Renovação integral de interiores e recuperação de edifícios, respeitando a traça original.',
-      link: '/servicos/remodelacao',
-      image: 'https://images.unsplash.com/photo-1574359411659-15573a27fd0c?q=80&w=600&h=400&auto=format&fit=crop'
-    },
-    {
-      title: 'Projetos de Engenharia',
-      description: 'Cálculos estruturais, especialidades e gestão de obra para garantir a máxima segurança.',
-      link: '/servicos/engenharia',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=600&h=400&auto=format&fit=crop'
-    }
-  ];
-
+  featuredServices: ServiceItem[] = [];
   featuredProjects: ProjectItem[] = [];
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object, 
+    @Inject(PLATFORM_ID) private platformId: Object,
     private el: ElementRef,
-    private portfolioService: PortfolioService
+    private portfolioService: PortfolioService,
+    private servicesService: ServicesService
   ) {
     this.featuredProjects = this.portfolioService.getProjects().slice(0, 3);
+    
+    // Create a shuffled copy of the services array for the home page
+    const allServices = this.servicesService.getServices();
+    const shuffledServices = this.shuffleArray([...allServices]);
+    this.featuredServices = shuffledServices.slice(0, 3);
+  }
+
+  private shuffleArray(array: any[]): any[] {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
   }
 
   ngOnInit() {
