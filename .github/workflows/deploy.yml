@@ -40,7 +40,10 @@ jobs:
 
       - name: Build Angular App
         # Argumento --config removido pois não é suportado. O ficheiro angular.json já existe (passo anterior).
-        run: npx ng build --configuration production --base-href /${{ github.event.repository.name }}/
+        run: npx ng build --configuration production --base-href /
+
+      - name: Create 404.html for SPA Fallback
+        run: cp ./dist/pilar-forte/browser/index.html ./dist/pilar-forte/browser/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
