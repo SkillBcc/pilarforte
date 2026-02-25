@@ -54,7 +54,6 @@ export class PortfolioComponent implements OnDestroy {
         'assets/portfolio/rem_02/02.jpeg',
         'assets/portfolio/rem_02/03.jpeg',
         'assets/portfolio/rem_02/04.jpeg',
-        'assets/portfolio/rem_02/04.jpeg',
       ]
     },
     {
