@@ -1,7 +1,8 @@
 
-import { Component, signal, WritableSignal, computed, OnDestroy } from '@angular/core';
+import { Component, signal, WritableSignal, computed, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { PortfolioService, ProjectItem } from '../../services/portfolio.service';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -10,7 +11,7 @@ import { PortfolioService, ProjectItem } from '../../services/portfolio.service'
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.css'
 })
-export class PortfolioComponent implements OnDestroy {
+export class PortfolioComponent implements OnDestroy, OnInit {
   // State for the Lightbox
   selectedProject: WritableSignal<ProjectItem | null> = signal(null);
   currentImageIndex: WritableSignal<number> = signal(0);
@@ -24,8 +25,13 @@ export class PortfolioComponent implements OnDestroy {
 
   projects: ProjectItem[] = [];
 
-  constructor(private portfolioService: PortfolioService) {
+  constructor(private portfolioService: PortfolioService, private seoService: SeoService) {
     this.projects = this.portfolioService.getProjects();
+  }
+
+  ngOnInit() {
+    this.seoService.setMetaTagsDefault();
+    this.seoService.setJsonLdDefault();
   }
 
   ngOnDestroy() {

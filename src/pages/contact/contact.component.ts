@@ -1,8 +1,9 @@
 
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-contact',
@@ -11,8 +12,16 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
+
+  constructor(private seoService: SeoService) {};
+
   private http = inject(HttpClient);
+
+  ngOnInit() {
+    this.seoService.setMetaTagsDefault();
+    this.seoService.setJsonLdDefault();
+  }
   
   isSubmitting = false;
   submitSuccess = false;

@@ -4,6 +4,7 @@ import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/comm
 import { RouterLink } from '@angular/router';
 import { PortfolioService, ProjectItem } from '../../services/portfolio.service';
 import { ServicesService, ServiceItem } from '../../services/services.service';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -41,7 +42,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     @Inject(PLATFORM_ID) private platformId: Object,
     private el: ElementRef,
     private portfolioService: PortfolioService,
-    private servicesService: ServicesService
+    private servicesService: ServicesService,
+    private seoService: SeoService
   ) {
     this.featuredProjects = this.portfolioService.getProjects().slice(0, 3);
     
@@ -60,6 +62,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.seoService.setMetaTagsDefault();
+    this.seoService.setJsonLdDefault();
+
     if (isPlatformBrowser(this.platformId)) {
       this.startHeroCarousel();
     }
