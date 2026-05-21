@@ -50,7 +50,7 @@ export class ServicesService {
       description: 'Parcerias com arquitetos de renome para criar espaços únicos. Focamo-nos na funcionalidade e na estética.',
       longDescription: 'Parcerias com arquitetos de renome para criar espaços únicos. Focamo-nos na funcionalidade e na estética.',
       icon: 'design',
-      image: 'https://images.unsplash.com/photo-1512917774080-bca914877e0e?q=80&w=600&h=400&auto=format&fit=crop',
+      image: 'assets/images/arquitetura.jpg',
       link: '/servicos/arquitetura'
     }
   ];
