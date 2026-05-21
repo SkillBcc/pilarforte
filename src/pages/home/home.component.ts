@@ -51,6 +51,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     const allServices = this.servicesService.getServices();
     const shuffledServices = this.shuffleArray([...allServices]);
     this.featuredServices = shuffledServices.slice(0, 3);
+
+    this.seoService.setMetaTags(
+      'Pilar Forte | Construção e Remodelações em Lisboa e Setúbal',
+      'Especialistas em construção civil, engenharia e remodelações de luxo. Atuamos em toda a região de Lisboa e Setúbal com rigor e qualidade.'
+    );
+    this.seoService.setJsonLdDefault();
   }
 
   private shuffleArray(array: any[]): any[] {
@@ -62,9 +68,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.seoService.setMetaTagsDefault();
-    this.seoService.setJsonLdDefault();
-
     if (isPlatformBrowser(this.platformId)) {
       this.startHeroCarousel();
     }

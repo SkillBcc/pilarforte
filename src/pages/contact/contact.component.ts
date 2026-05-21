@@ -12,17 +12,15 @@ import { SeoService } from '../../services/seo.service';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
 
-  constructor(private seoService: SeoService) {};
+  constructor(private seoService: SeoService) {
+    this.seoService.setMetaTagsDefault();
+    this.seoService.setJsonLdDefault();
+  };
 
   private http = inject(HttpClient);
 
-  ngOnInit() {
-    this.seoService.setMetaTagsDefault();
-    this.seoService.setJsonLdDefault();
-  }
-  
   isSubmitting = false;
   submitSuccess = false;
   submitError = false;
