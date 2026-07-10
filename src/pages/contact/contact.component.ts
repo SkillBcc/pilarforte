@@ -12,12 +12,17 @@ import { SeoService } from '../../services/seo.service';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
 
-  constructor(private seoService: SeoService) {
-    this.seoService.setMetaTagsDefault();
+  constructor(private seoService: SeoService) {}
+
+  ngOnInit() {
+    this.seoService.setMetaTags(
+      'Contactos e Pedidos de Orçamento | Pilar Forte',
+      'Entre em contacto com a Pilar Forte. Peça um orçamento gratuito para o seu projeto de construção, engenharia civil, remodelação de moradia ou design de interiores.'
+    );
     this.seoService.setJsonLdDefault();
-  };
+  }
 
   private http = inject(HttpClient);
 

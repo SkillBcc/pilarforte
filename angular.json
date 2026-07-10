@@ -12,27 +12,21 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/app/browser",
             "index": "index.html",
             "browser": "index.tsx",
             "tsConfig": "tsconfig.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public/assets",
-                "output": "/assets"
-              },
-              {
-                "glob": "favicon.svg",
-                "input": "public",
-                "output": "/"
-              },
-              {
-                "glob": "favicon-white.svg",
-                "input": "public",
-                "output": "/"
+                "input": "public"
               }
-            ]
+            ],
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            },
+            "server": "src/main.server.ts"
           },
           "configurations": {
             "production": {
@@ -60,6 +54,25 @@
             }
           },
           "defaultConfiguration": "development"
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/app/server",
+            "main": "main.server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

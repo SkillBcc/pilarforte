@@ -15,7 +15,10 @@ export class AboutComponent implements OnInit {
   constructor(private seoService: SeoService) {}
 
   ngOnInit() {
-    this.seoService.setMetaTagsDefault();
+    this.seoService.setMetaTags(
+      'Quem Somos | Pilar Forte | Engenharia & Construção',
+      'Saiba mais sobre a Pilar Forte, uma empresa com anos de experiência em engenharia, arquitetura e construção civil em Lisboa e Setúbal. Conheça a nossa história, valores e compromisso com a qualidade.'
+    );
     this.seoService.setJsonLdDefault();
   }
 }

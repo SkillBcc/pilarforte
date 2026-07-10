@@ -67,7 +67,15 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:title', content: title });
     this.meta.updateTag({ property: 'og:description', content: description });
     this.meta.updateTag({ property: 'og:image', content: image });
+    this.meta.updateTag({ property: 'og:url', content: this.doc.URL });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this.meta.updateTag({ property: 'og:locale', content: 'pt_PT' });
+
+    // Twitter Card
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.meta.updateTag({ name: 'twitter:title', content: title });
+    this.meta.updateTag({ name: 'twitter:description', content: description });
+    this.meta.updateTag({ name: 'twitter:image', content: image });
 
     // Canonical Link
     this.updateCanonicalLink();
@@ -93,7 +101,7 @@ export class SeoService {
       script.textContent = JSON.stringify(schema);
     } else {
       script = this.doc.createElement('script');
-      // script.type = 'application/ld+json';
+      script.setAttribute('type', 'application/ld+json');
       script.textContent = JSON.stringify(schema);
       this.doc.head.appendChild(script);
     }

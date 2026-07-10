@@ -1,4 +1,5 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -12,20 +13,24 @@ export class AutoTranslateService {
   private brandObserver: MutationObserver | null = null;
   private brandObserverTimer: any = null;
 
+  private platformId = inject(PLATFORM_ID);
+
   constructor() {
-    this.initializeGoogleTranslate();
-    // Protect brand name on initialization so it isn't translated
-    try {
-      const div = document.querySelector('.skiptranslate') as HTMLIFrameElement | null;
-      if (div) {
-        div.style.display = 'none';
+    if (isPlatformBrowser(this.platformId)) {
+      this.initializeGoogleTranslate();
+      // Protect brand name on initialization so it isn't translated
+      try {
+        const div = document.querySelector('.skiptranslate') as HTMLIFrameElement | null;
+        if (div) {
+          div.style.display = 'none';
+        }
+        // slight delay to ensure DOM has been rendered
+        setTimeout(() => this.protectBrand(), 200);
+        // start observing DOM changes so dynamically added content is protected
+        setTimeout(() => this.startBrandObserver(), 300);
+      } catch (e) {
+        console.warn('protectBrand init failed', e);
       }
-      // slight delay to ensure DOM has been rendered
-      setTimeout(() => this.protectBrand(), 200);
-      // start observing DOM changes so dynamically added content is protected
-      setTimeout(() => this.startBrandObserver(), 300);
-    } catch (e) {
-      console.warn('protectBrand init failed', e);
     }
   }
 

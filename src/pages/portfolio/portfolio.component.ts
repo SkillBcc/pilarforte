@@ -1,6 +1,6 @@
 
-import { Component, signal, WritableSignal, computed, OnDestroy, OnInit } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { Component, signal, WritableSignal, computed, OnDestroy, OnInit, PLATFORM_ID, inject } from '@angular/core';
+import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { PortfolioService, ProjectItem } from '../../services/portfolio.service';
 import { SeoService } from '../../services/seo.service';
 
@@ -24,32 +24,42 @@ export class PortfolioComponent implements OnDestroy, OnInit {
   });
 
   projects: ProjectItem[] = [];
+  private platformId = inject(PLATFORM_ID);
 
   constructor(private portfolioService: PortfolioService, private seoService: SeoService) {
     this.projects = this.portfolioService.getProjects();
   }
 
   ngOnInit() {
-    this.seoService.setMetaTagsDefault();
+    this.seoService.setMetaTags(
+      'Portfólio de Obras e Projetos | Pilar Forte',
+      'Explore o portfólio de obras concluídas da Pilar Forte. Galeria de fotos com projetos reais de construção de moradias, remodelações de luxo e engenharia.'
+    );
     this.seoService.setJsonLdDefault();
   }
 
   ngOnDestroy() {
-    // Ensure scroll is restored even if component is destroyed while lightbox is open
-    document.body.style.overflow = 'auto';
+    if (isPlatformBrowser(this.platformId)) {
+      // Ensure scroll is restored even if component is destroyed while lightbox is open
+      document.body.style.overflow = 'auto';
+    }
   }
 
   openProject(project: ProjectItem) {
     this.selectedProject.set(project);
     this.currentImageIndex.set(0);
-    // Prevent background scrolling
-    document.body.style.overflow = 'hidden';
+    if (isPlatformBrowser(this.platformId)) {
+      // Prevent background scrolling
+      document.body.style.overflow = 'hidden';
+    }
   }
 
   closeProject() {
     this.selectedProject.set(null);
-    // Restore background scrolling
-    document.body.style.overflow = 'auto';
+    if (isPlatformBrowser(this.platformId)) {
+      // Restore background scrolling
+      document.body.style.overflow = 'auto';
+    }
   }
 
   nextImage(event?: Event) {

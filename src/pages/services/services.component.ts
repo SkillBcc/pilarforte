@@ -20,7 +20,10 @@ export class ServicesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.seoService.setMetaTagsDefault();
+    this.seoService.setMetaTags(
+      'Serviços de Engenharia e Construção | Pilar Forte',
+      'Conheça os nossos serviços integrados de construção de raiz, remodelações de interiores e exteriores, engenharia civil e projetos de arquitetura em Lisboa e Setúbal.'
+    );
     this.seoService.setJsonLdDefault();
   }
 }

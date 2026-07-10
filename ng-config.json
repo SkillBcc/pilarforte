@@ -11,7 +11,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular/build:application",
           "options": {
             "outputPath": "dist/pilar-forte",
             "index": "index.html",
@@ -27,7 +27,12 @@
               }
             ],
             "styles": [],
-            "scripts": []
+            "scripts": [],
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            },
+            "server": "src/main.server.ts"
           },
           "configurations": {
             "production": {
